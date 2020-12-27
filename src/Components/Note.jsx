@@ -1,10 +1,10 @@
 import React from "react";
 
-export const Note = () => {
+export const Note = (props) => {
   return (
     <div className="note">
-      <h1>This is a note title</h1>
-      <p>This is a note content</p>
+      <h1>{props.title}</h1>
+      <p>{props.content}</p>
     </div>
   );
 };
