@@ -47,20 +47,23 @@ function CreateArea(props) {
   return (
     <div>
       <form className="create-note">
-        <input
-          style={{ display: !visibility && "none" }}
-          onChange={handleChange}
-          name="title"
-          placeholder="Title"
-          value={inputNote.title}
-        />
+        {visibility && (
+          <input
+            // style={{ display: !visibility && "none" }}
+            onChange={handleChange}
+            name="title"
+            placeholder="Title"
+            value={inputNote.title}
+          />
+        )}
+
         <textarea
           onClick={handleTextClick}
           onChange={handleChange}
           name="content"
           value={inputNote.content}
           placeholder="Take a note..."
-          rows="3"
+          rows={!visibility ? "1" : "3"}
         />
         <Zoom in={visibility}>
           <Fab onClick={handleAddClick}>
