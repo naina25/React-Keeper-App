@@ -13,13 +13,25 @@ function App() {
     });
   }
 
+  function handleDelete(id) {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((note, noteIndex) => noteIndex !== id);
+    });
+  }
+
   return (
     <div>
       <Header />
       <CreateArea createNote={createNote} />
       {notes.map((note, noteIndex) => {
         return (
-          <Note key={noteIndex} title={note.title} content={note.content} />
+          <Note
+            key={noteIndex}
+            id={noteIndex}
+            title={note.title}
+            content={note.content}
+            handleDelete={handleDelete}
+          />
         );
       })}
       <Footer />
